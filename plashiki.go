@@ -22,7 +22,7 @@ func GetAnimeID(id string) (map[int]Episode, error) {
 	if err := json.Unmarshal(body, &anime); err != nil {
 		return nil, err
 	}
-	if anime.OK == true {
+	if anime.OK {
 		return anime.Result, nil
 	}
 	return nil, errors.New("Request error: " + anime.Reason)
@@ -42,7 +42,7 @@ func GetAnimeEpisode(id string, num string) (map[int]Episode, error) {
 	if err := json.Unmarshal(body, &anime); err != nil {
 		return map[int]Episode{}, err
 	}
-	if anime.OK == true {
+	if anime.OK {
 		return anime.Result, nil
 	}
 	return map[int]Episode{}, errors.New("Request error: " + anime.Reason)
@@ -62,7 +62,7 @@ func GetAnimeEpisodesNumber(id string) ([]int, error) {
 	if err := json.Unmarshal(body, &anime); err != nil {
 		return []int{}, err
 	}
-	if anime.OK == true {
+	if anime.OK {
 		return anime.Result, nil
 	}
 	return []int{}, errors.New("Request error: " + anime.Reason)
@@ -116,7 +116,7 @@ func GetAnimeQuery(args map[string]string) ([]Translation, error) {
 	if err := json.Unmarshal(body, &anime); err != nil {
 		return nil, err
 	}
-	if anime.OK == true {
+	if anime.OK {
 		return anime.Result, nil
 	}
 	return nil, errors.New("Request error: " + anime.Reason)
