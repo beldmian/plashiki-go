@@ -10,7 +10,7 @@ import (
 
 // GetAnimeID ...
 func GetAnimeID(id string) (map[int]Episode, error) {
-	resp, err := http.Get("https://plashiki.online/api/anime/v2/" + id)
+	resp, err := http.Get("https://plashiki.su/api/anime/v2/" + id)
 	if err != nil {
 		return nil, err
 	}
@@ -30,7 +30,7 @@ func GetAnimeID(id string) (map[int]Episode, error) {
 
 // GetAnimeEpisode ...
 func GetAnimeEpisode(id string, num string) (map[int]Episode, error) {
-	resp, err := http.Get("https://plashiki.online/api/anime/v2/" + id + "/episodes/" + num)
+	resp, err := http.Get("https://plashiki.su/api/anime/v2/" + id + "/episodes/" + num)
 	if err != nil {
 		return map[int]Episode{}, err
 	}
@@ -50,7 +50,7 @@ func GetAnimeEpisode(id string, num string) (map[int]Episode, error) {
 
 // GetAnimeEpisodesNumber ...
 func GetAnimeEpisodesNumber(id string) ([]int, error) {
-	resp, err := http.Get("https://plashiki.online/api/anime/v2/" + id + "/episodes")
+	resp, err := http.Get("https://plashiki.su/api/anime/v2/" + id + "/episodes")
 	if err != nil {
 		return []int{}, err
 	}
@@ -70,7 +70,7 @@ func GetAnimeEpisodesNumber(id string) ([]int, error) {
 
 // GetAnimeQuery ...
 func GetAnimeQuery(args map[string]string) ([]Translation, error) {
-	baseURL, err := url.Parse("https://plashiki.online")
+	baseURL, err := url.Parse("https://plashiki.su")
 	if err != nil {
 		return nil, err
 	}
